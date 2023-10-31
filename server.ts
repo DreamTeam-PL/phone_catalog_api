@@ -1,7 +1,6 @@
 import express from 'express'
 import { Server } from 'http'
 import productsRouter from './src/Routes/products'
-import { config } from 'dotenv'
 import { connect } from './src/utils/db'
 import dotenv from 'dotenv'
 
