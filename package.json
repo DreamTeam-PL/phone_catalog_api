@@ -20,10 +20,14 @@
   "homepage": "https://github.com/DreamTeam-PL/phone_catalog_api#readme",
   "dependencies": {
     "@types/express": "^4.17.20",
+    "@types/cors": "^2.8.15",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "pg": "^8.11.3",
-    "sequelize": "^6.33.0"
+    "sequelize": "^6.33.0",
+    "sequelize-typescript": "^2.1.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.9.1",
