@@ -20,8 +20,9 @@ export async function connect() {
     await sequelize.authenticate()
     console.log(process.env)
     console.log('Connection has been established successfully.')
+    return true
   } catch (error) {
-    console.error('Unable to connect to the database:', error)
+    throw new Error('Unable to connect to the database:')
   }
 }
 
