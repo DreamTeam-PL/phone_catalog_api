@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize')
+import { Sequelize } from 'sequelize';
 
 export const sequelize = new Sequelize({
   database: 'products_s2fp',
@@ -25,6 +25,3 @@ export async function connect() {
     throw new Error('Unable to connect to the database:')
   }
 }
-
-export const PORT = process.env.PORT
-export const CLIENT_URL = process.env.CLIENT_URL
