@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize } from 'sequelize'
 
 export const sequelize = new Sequelize({
   database: 'products_s2fp',
@@ -22,42 +22,39 @@ export async function tableExists(tableName: string): Promise<boolean> {
         SELECT 1
         FROM information_schema.tables
         WHERE table_name = '${tableName}'
-      );`);
-      console.log('Resulty:', result)
-    return true;
+      );`
+    )
+    console.log('Resulty:', result)
+    return true
   } catch (error) {
-    console.error(`Błąd sprawdzania istnienia tabeli: ${error}`);
-    return false;
+    console.error(`Błąd sprawdzania istnienia tabeli: ${error}`)
+    return false
   }
 }
-
-
 
 export async function connect() {
   try {
     await sequelize.authenticate()
     console.log(process.env)
     console.log('Connection has been established successfully.')
-    return sequelize;
+    return sequelize
   } catch (error) {
     throw new Error('Unable to connect to the database:')
   }
 }
 
-// import Product from '../models/Products';
-import * as data from '../data/phones.json';
+// // import Product from '../models/Products';
+// import * as data from '../data/phones.json'
 
-export async function seed() {
-  try {
-    // await sequelize.sync();
-    Array.from(data).forEach(async record => { 
-       console.log('To rekortd:', record);
-    });
-  }catch (e) {
-    throw new Error(String(e));
-  }
-}
+// export async function seed() {
+//   try {
+//     // await sequelize.sync();
+//     Array.from(data).forEach(async (record) => {
+//       console.log('To rekortd:', record)
+//     })
+//   } catch (e) {
+//     throw new Error(String(e))
+//   }
+// }
 
-export const db = {
-
-};
+// export const db = {}
