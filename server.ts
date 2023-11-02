@@ -5,7 +5,6 @@ import { connect } from './src/utils/db'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import { seed } from './src/scripts/seeder'
-import { tableExists } from './src/utils/db'
 
 dotenv.config()
 
@@ -19,9 +18,6 @@ app.use('/product/', express.json(), productsRouter)
 app.get('/', (req, res) => res.send('DreamsTeam Api'))
 
 connect()
-  .then(() => {
-    return tableExists('Phones')
-  })
   .then(() =>
     seed().then(() =>
       app.listen(port, () => {
