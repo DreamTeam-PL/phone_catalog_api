@@ -1,10 +1,10 @@
 import express from 'express'
 import { Server } from 'http'
 import productsRouter from './src/Routes/products'
-import { connect } from './src/utils/db';
+import { connect, seed } from './src/utils/db';
 import dotenv from 'dotenv'
 import cors from 'cors'
-import { seed } from './src/Services/seed';
+// import { seed } from './src/Services/seed'; 
 
 dotenv.config()
 
@@ -17,9 +17,7 @@ app.use(cors())
 app.use('/product/', express.json(), productsRouter)
 app.get('/', (req, res) => res.send('DreamsTeam Api'))
 
-connect().then(() =>
-  app.listen(port, () => {
-    seed().then(() => console.log('Seed Okay!'));
-    console.log(`Server is running on port ${port}`)
-  })
-)
+connect().then(() => 
+    seed().then(() => app.listen(port, () => { 
+      console.log(`Server is running on port ${port}`)
+    }))).catch((e) => console.error('Seeder error', e));
