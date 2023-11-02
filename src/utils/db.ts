@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize')
 
-export const sequelize = new Sequelize({
+const sequelize = new Sequelize({
   database: 'products_s2fp',
   username: 'products_s2fp_user',
   host: 'dpg-cl00i43amefc73cge3v0-a.frankfurt-postgres.render.com',
@@ -15,7 +15,7 @@ export const sequelize = new Sequelize({
   },
 })
 
-export async function connect() {
+async function connect() {
   try {
     await sequelize.authenticate()
     console.log(process.env)
@@ -26,5 +26,7 @@ export async function connect() {
   }
 }
 
-export const PORT = process.env.PORT
-export const CLIENT_URL = process.env.CLIENT_URL
+// export const PORT = process.env.PORT
+// export const CLIENT_URL = process.env.CLIENT_URL
+
+module.exports = { sequelize, connect }
