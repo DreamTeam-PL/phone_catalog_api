@@ -1,6 +1,6 @@
-const { Sequelize } = require('sequelize')
+import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize({
+export const sequelize = new Sequelize({
   database: 'products_s2fp',
   username: 'products_s2fp_user',
   host: 'dpg-cl00i43amefc73cge3v0-a.frankfurt-postgres.render.com',
@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
   },
 })
 
-async function connect() {
+export async function connect() {
   try {
     await sequelize.authenticate()
     console.log(process.env)
@@ -25,8 +25,3 @@ async function connect() {
     throw new Error('Unable to connect to the database:')
   }
 }
-
-// export const PORT = process.env.PORT
-// export const CLIENT_URL = process.env.CLIENT_URL
-
-module.exports = { sequelize, connect }
