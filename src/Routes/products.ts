@@ -1,7 +1,7 @@
 'use strict'
 
 import { Router } from 'express'
-import Controller from '../Controllers/products'
+import Controller from '../Controllers/Product'
 
 const router = Router()
 

@@ -1,7 +1,29 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../utils/db';
 
-class Phone extends Model {}
+class Phone extends Model {
+  public id!: string
+  public namespaceId!: string
+  public name!: string
+  public capacityAvailable!: string[]
+  public capacity!: string | null;
+  public priceRegular!: number
+  public priceDiscount!: number
+  public colorsAvailable!: string[]
+  public color!: string
+  public images!: string[]
+  public description!: {
+          title:string;
+          text:string[];
+      }[];
+  public screen!: string
+  public resolution!:  string
+  public processor!: string
+  public ram!: string
+  public camera!: string
+  public zoom!: string
+  public cell!: string[]
+}
 
 Phone.init(
   {
