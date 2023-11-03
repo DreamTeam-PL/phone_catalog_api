@@ -1,12 +1,18 @@
-import { Sequelize } from 'sequelize'
+import { Dialect, Sequelize } from 'sequelize'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
+const dbPortString = process.env.DB_PORT || '5432'
+const port = parseInt(dbPortString)
 
 export const sequelize = new Sequelize({
-  database: 'products_s2fp',
-  username: 'products_s2fp_user',
-  host: 'dpg-cl00i43amefc73cge3v0-a.frankfurt-postgres.render.com',
-  password: 'SYR2ioLPw3075f0s57aCaICWJU0NI2S1',
-  port: 5432,
-  dialect: 'postgres',
+  database: process.env.DB_NAME,
+  username: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  password: process.env.DB_PASSWORD,
+  port: port,
+  dialect: process.env.DB_DIALECT as Dialect,
   dialectOptions: {
     ssl: {
       require: true,
