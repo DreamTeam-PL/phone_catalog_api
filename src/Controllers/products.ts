@@ -9,8 +9,9 @@ import { Product } from '../types/types';
 export default {
   hello: (req: Request, res: Response) =>
     res.status(200).send('Ekstra! Hello in product api!'), 
+
   getProduct:  async (req: Request, res: Response) => ProductService.getProduct(String(req.params.productId || ''))
-  .then(result => res.status(result.find ? 200 : 404).json(result.find ? result.product : {}).end())
+  .then(result => res.status(result.find ? 200 : 404).json(result.find ? result.product : { error: 'Product has not found. '}).end())
   .catch((error) => res.status(500).json({ error }).end()),
 
   getNewest: async (req: Request, res: Response) => ProductService.getList(
