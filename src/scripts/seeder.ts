@@ -2,15 +2,6 @@ import data from '../data/phones.json'
 import Product from '../models/Product'
 import { sequelize } from '../utils/db'
 
-async function getAllProducts() {
-  try {
-    const products = await Product.findAll()
-    console.log('Pobrane produkty:', products)
-  } catch (error) {
-    console.error('Błąd podczas pobierania wszystkich produktów:', error)
-  }
-}
-
 async function checkIfDataExists() {
   const existingProducts = await Product.findAll()
   return existingProducts.length > 0
@@ -18,7 +9,7 @@ async function checkIfDataExists() {
 
 export async function seed() {
   try {
-    const dataExists = await checkIfDataExists()
+    const dataExists = await checkIfDataExists();
     if (!dataExists) {
       await sequelize.sync()
       await Product.bulkCreate(data, {
@@ -36,16 +27,14 @@ export async function seed() {
           'year',
           'image',
         ],
-      })
-
+      });
       console.log('Dane zostały załadowane do bazy danych.')
     } else {
       console.log(
         'Dane już istnieją w bazie danych. Nie dodawano nowych rekordów.'
       )
     }
-
-    // getAllProducts()
+ 
   } catch (error) {
     console.error('Błąd podczas ładowania danych do bazy danych:', error)
   }

@@ -33,7 +33,7 @@ Product.init(
   },
   {
     sequelize,
-    modelName: 'Phone',
+    modelName: 'Product',
   }
 )
 
