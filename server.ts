@@ -13,9 +13,9 @@ const app = express()
 const server = new Server(app)
 const port = process.env.PORT || 80
 
-app.use(cors())
-app.use('/product/', express.json(), productsRouter)
+app.use(cors());
 app.get('/', (req, res) => res.send('DreamsTeam Api'))
+app.use('/products/', express.json(), productsRouter)
 
 connect()
   .then(() =>
