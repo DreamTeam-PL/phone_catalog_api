@@ -10,7 +10,7 @@ class Product extends Model {
   public price!: number
   public screen!: string | null
   public capacity!: string | null
-  public color!: string | null
+  public color!: string 
   public ram!: string | null
   public year!: number | null
   public image!: string | null
