@@ -47,6 +47,9 @@ export default {
       page: Number(req.query.page || 1), 
       limit: Number(req.query.limit || 16), 
       sortBy: (req.query.sort || 'id') as keyof Product,
-      sortType: (req.query.sortType || 'asc') as 'asc' | 'desc'
+      sortType: (req.query.sortType || 'asc') as 'asc' | 'desc',
+      where: !req.query.productType ? undefined : {
+        category: req.query.productType,
+      }
     }).then(result => res.status(200).json(result.data).end()), 
 }
