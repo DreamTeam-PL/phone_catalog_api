@@ -17,7 +17,7 @@ export default {
           const product = await ProductModel.findOne({ where: { [field]: value } }); 
           return {
             find: !!product,
-            product
+            data: product
           }
         } catch (error) { 
           throw new Error('Server Error. cannot to get product data.')

@@ -35,7 +35,7 @@ export default {
     sortType: 'desc',
   }).then(result => res.status(200).json(result.data).end()),
 
-  getDiscounted:  async (req: Request, res: Response) => ProductService.getProductList({
+  getDiscountedProducts:  async (req: Request, res: Response) => ProductService.getProductList({
     page: 1, 
     limit: 4, 
     sortBy: 'discountPercentage',
