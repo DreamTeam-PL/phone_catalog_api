@@ -6,8 +6,9 @@ import Controller from '../Controllers/Product'
 const router = Router()
 
 router.get('/', Controller.getProductsList);
-router.get('/new', Controller.getNewest);
-router.get('/discount', Controller.getDiscounted);
-router.get('/:productId', Controller.getProduct);
+router.get('/new', Controller.getNewProducts);
+router.get('/discount', Controller.getDiscountedProducts);
+router.get('/:productId/recommended', Controller.getRecommendedById);
+router.get('/:productId', Controller.getProductById);
 
 export default router

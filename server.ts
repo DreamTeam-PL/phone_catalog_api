@@ -1,7 +1,6 @@
 import express from 'express';
 import { Server } from 'http';
-import productsRouter from './src/Routes/Products';
-import phoneRouter from './src/Routes/Phones'; 
+import ProductsRouter from './src/Routes/Products'; 
 import { connect } from './src/utils/db';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -14,8 +13,7 @@ new Server(app);
 
 app.use(cors());
 app.get('/', (req, res) => res.send('DreamsTeam Api'))
-app.use('/products', express.json(), productsRouter)
-app.use('/phones', express.json(), phoneRouter)
+app.use('/products', express.json(), ProductsRouter);
 app.use('/images', express.static('public/images/'));
 
 connect().then(() => seed(process.argv.includes('--seed')))
