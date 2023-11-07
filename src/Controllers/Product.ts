@@ -33,7 +33,7 @@ export default {
     limit: 4, 
     sortBy: 'year',
     sortType: 'desc',
-  }).then(result => res.status(200).json(result.data).end()),
+  }).then(result => res.status(200).json(result).end()),
 
   getDiscountedProducts:  async (req: Request, res: Response) => ProductService.getProductList({
     page: 1, 
@@ -41,7 +41,7 @@ export default {
     sortBy: 'discountPercentage',
     sortType: 'desc',
     where: Sequelize.where(Sequelize.literal('"fullPrice" - "price"'), { [Op.gt]: 0 } )  
-  }).then(result => res.status(200).json(result.data).end()),
+  }).then(result => res.status(200).json(result).end()),
 
   getProductsList: async (req: Request, res: Response) => ProductService.getProductList({
       page: Number(req.query.page || 1), 
@@ -51,5 +51,5 @@ export default {
       where: !req.query.productType ? undefined : {
         category: req.query.productType,
       }
-    }).then(result => res.status(200).json(result.data).end()), 
+    }).then(result => res.status(200).json(result).end()), 
 }
