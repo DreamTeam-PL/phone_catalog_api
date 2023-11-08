@@ -14,7 +14,7 @@ new Server(app)
 app.use(cors())
 app.get('/', (req, res) => res.send('DreamsTeam Api'))
 app.use('/products', express.json(), ProductsRouter)
-app.use('/images', express.static('public/images/'))
+app.use('/img', express.static('public/img/'))
 
 connect()
   .then(() => seed(process.argv.includes('--seed')))
